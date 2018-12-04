@@ -11,8 +11,10 @@ See the [AWS Security Credentials](https://docs.aws.amazon.com/general/latest/gr
 
 ## Example
 
+Deploy an application in the root directory to `production`:
+
 ```hcl
-workflow "Deploy to Up" {
+workflow "Deploy Application" {
   on = "push"
   resolves = ["Deploy"]
 }
@@ -20,6 +22,21 @@ workflow "Deploy to Up" {
 action "Deploy" {
   uses = "apex/actions/up@master"
   args = "deploy production"
+  secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+}
+```
+
+Deploy an application within a sub-directory to `staging`:
+
+```hcl
+workflow "Deploy Application" {
+  on = "push"
+  resolves = ["Deploy Staging"]
+}
+
+action "Deploy Staging" {
+  uses = "apex/actions/up@master"
+  args = "-C cmd/team-api deploy staging"
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 }
 ```
