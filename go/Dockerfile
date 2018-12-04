@@ -12,3 +12,4 @@ LABEL "com.github.actions.color"="white"
 ENV GO111MODULE on
 
 ENTRYPOINT ["/usr/local/go/bin/go"]
+CMD ["build", "-o", "server", "main.go"]
