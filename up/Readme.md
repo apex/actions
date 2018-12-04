@@ -40,3 +40,24 @@ action "Deploy Staging" {
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 }
 ```
+
+Deploy an application to `production` after installing NPM dependencies:
+
+```
+workflow "Deploy Application" {
+  on = "push"
+  resolves = ["Deploy"]
+}
+
+action "Build" {
+  uses = "actions/npm@master"
+  args = "install"
+}
+
+action "Deploy" {
+  needs = "Build"
+  uses = "apex/actions/up@master"
+  secrets = ["AWS_SECRET_ACCESS_KEY", "AWS_ACCESS_KEY_ID"]
+  args = "deploy production"
+}
+```
