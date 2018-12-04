@@ -5,6 +5,10 @@
 - [Up](./up) — Deploy serverless applications and APIs to AWS Lambda
 - [Go](./go) — Build Go applications
 
+## Resources
+
+- [Docker Images](https://github.com/lambci/docker-lambda) for Lambda
+
 ---
 
 [![GoDoc](https://godoc.org/github.com/apex/actions?status.svg)](https://godoc.org/github.com/apex/actions)

@@ -16,3 +16,4 @@ RUN curl -sf https://up.apex.sh/install | sh
 RUN chmod +x /usr/local/bin/up
 
 ENTRYPOINT ["/usr/local/bin/up"]
+CMD ["deploy"]
