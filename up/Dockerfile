@@ -7,7 +7,7 @@ LABEL homepage="http://github.com/apex/actions/up"
 LABEL "com.github.actions.name"="Up"
 LABEL "com.github.actions.description"="Perform Up application operations"
 LABEL "com.github.actions.icon"="arrow-up"
-LABEL "com.github.actions.color"="black"
+LABEL "com.github.actions.color"="chevron-up"
 
 RUN apk add --update curl jq && rm -rf /var/cache/apk/*
 
