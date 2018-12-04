@@ -1,5 +1,10 @@
 <img src="http://tjholowaychuk.com:6000/svg/title/APEX/ACTIONS">
 
+## Actions
+
+- [Up](./up) — Deploy serverless applications and APIs to AWS Lambda
+- [Go](./go) — Build Go applications
+
 ---
 
 [![GoDoc](https://godoc.org/github.com/apex/actions?status.svg)](https://godoc.org/github.com/apex/actions)
