@@ -1,6 +1,6 @@
 # Up
 
-GitHub action for deploying serverless applications with [Up](https://github.com/apex/up).
+GitHub Action for deploying and operating serverless applications with [Up](https://github.com/apex/up).
 
 ## Secrets
 
