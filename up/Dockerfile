@@ -11,6 +11,7 @@ LABEL "com.github.actions.color"="purple"
 
 RUN apk add --update curl jq && rm -rf /var/cache/apk/*
 
+ENV CI true
 RUN curl -sf https://up.apex.sh/install | sh
 RUN chmod +x /usr/local/bin/up
 
