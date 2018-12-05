@@ -2,6 +2,8 @@
 
 ## Actions
 
+[GitHub Actions](https://github.com/features/actions) for automating builds, deployments, and so on.
+
 - [Up](./up) — Deploy serverless applications and APIs to AWS Lambda
 - [Go](./go) — Build Go applications
 
