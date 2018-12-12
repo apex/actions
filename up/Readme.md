@@ -41,7 +41,9 @@ action "Deploy Staging" {
 }
 ```
 
-Deploy an application to `production` after installing NPM dependencies:
+Deploy an application to `production` after installing NPM dependencies
+in a separate action, note that Up's build hooks are disabled here with `--no-build` since
+we have already built the application.
 
 ```
 workflow "Deploy Application" {
@@ -58,6 +60,6 @@ action "Deploy" {
   needs = "Build"
   uses = "apex/actions/up@master"
   secrets = ["AWS_SECRET_ACCESS_KEY", "AWS_ACCESS_KEY_ID"]
-  args = "deploy production"
+  args = "deploy production --no-build"
 }
 ```
