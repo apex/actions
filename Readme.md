@@ -6,6 +6,7 @@
 
 - [Up](./up) — Deploy serverless applications and APIs to AWS Lambda
 - [Go](./go) — Build Go applications
+- [Slack](./slack) — Send Slack messages
 
 ## Resources
 

@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM golang:1.11
 
 LABEL version="1.0.0"
 LABEL maintainer="Apex"
@@ -9,11 +9,11 @@ LABEL "com.github.actions.description"="Perform Up application operations"
 LABEL "com.github.actions.icon"="chevron-up"
 LABEL "com.github.actions.color"="white"
 
-RUN apk add --update curl jq && rm -rf /var/cache/apk/*
-
 ENV CI true
 RUN curl -sf https://up.apex.sh/install | sh
 RUN chmod +x /usr/local/bin/up
 
-ENTRYPOINT ["/usr/local/bin/up"]
+RUN go get github.com/apex/actions/up/cmd/up-wrapper
+
+ENTRYPOINT ["up-wrapper"]
 CMD ["deploy", "--no-build"]

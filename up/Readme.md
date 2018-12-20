@@ -63,3 +63,7 @@ action "Deploy" {
   args = "deploy production --no-build"
 }
 ```
+
+## Notes
+
+This action generates a Slack message upon deployment.
