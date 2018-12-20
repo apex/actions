@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -12,11 +11,6 @@ import (
 
 	"github.com/apex/actions/slack"
 )
-
-// Config is the Up configuration.
-type Config struct {
-	Name string `json:"name"`
-}
 
 func main() {
 	args := os.Args[1:]
@@ -48,19 +42,6 @@ func main() {
 		}
 	}
 
-	// read app name
-	f, err := os.Open("up.json")
-	if err != nil {
-		log.Fatalf("error opening up.json: %s", err)
-	}
-	defer f.Close()
-
-	var c Config
-	err = json.NewDecoder(f).Decode(&c)
-	if err != nil {
-		log.Fatalf("error reading up.json: %s", err)
-	}
-
 	// proxy to up(1)
 	start := time.Now()
 
@@ -78,7 +59,7 @@ func main() {
 			IconURL:  "https://avatars.slack-edge.com/2018-12-20/508671226196_a96b52b97348bd9675e2_192.png",
 			Attachments: []*slack.Attachment{
 				&slack.Attachment{
-					Title:  c.Name,
+					Title:  os.Getenv("GITHUB_REPOSITORY"),
 					Text:   fmt.Sprintf("Deployment to *%s* completed.", stage),
 					Footer: fmt.Sprintf("Completed in %s", time.Since(start).Round(time.Second)),
 				},
