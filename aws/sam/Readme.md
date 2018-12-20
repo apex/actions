@@ -21,7 +21,10 @@ Package and deploy AWS SAM application with Slack notifications:
 ```hcl
 workflow "Deployment" {
   on = "push"
-  resolves = ["Deploy Notification"]
+  resolves = [
+    "Build Notification",
+    "Deploy Notification",
+  ]
 }
 
 action "Build" {
@@ -37,9 +40,9 @@ action "Build Notification" {
 }
 
 action "Deploy" {
-  needs = "Build Notification"
   uses = "apex/actions/aws/sam@master"
-  secrets = ["AWS_SECRET_ACCESS_KEY", "AWS_ACCESS_KEY_ID"]
+  needs = ["Build"]
+  secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
   args = "deploy --stack-name myapp --capabilities CAPABILITY_IAM --template-file out.yml"
   env = {
     AWS_DEFAULT_REGION = "us-west-2"
@@ -47,8 +50,9 @@ action "Deploy" {
 }
 
 action "Deploy Notification" {
-  needs = "Deploy"
   uses = "apex/actions/slack@master"
+  needs = ["Deploy"]
+  secrets = ["SLACK_WEBHOOK_URL"]
 }
 ```
 
