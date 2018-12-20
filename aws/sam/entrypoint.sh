@@ -27,7 +27,7 @@ footer="Completed in ${duration}s"
 
 cat <<EOF > slack.json
 {
-  "icon_url": $icon,
+  "icon_url": "$icon",
   "attachments": [
     {
       "title": "$title",
