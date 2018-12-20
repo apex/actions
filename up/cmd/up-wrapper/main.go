@@ -75,6 +75,7 @@ func main() {
 	if deploy {
 		err := slack.WriteMessage(filepath.Join(workdir, "slack.json"), &slack.Message{
 			Username: "Up",
+			IconURL:  "https://avatars.slack-edge.com/2018-12-20/508671226196_a96b52b97348bd9675e2_192.png",
 			Attachments: []*slack.Attachment{
 				&slack.Attachment{
 					Title:  c.Name,
