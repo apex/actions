@@ -6,7 +6,7 @@ GitHub Action for using the `go` binary. `GO111MODULE` is enabled and encouraged
 
 Deploy an application to `production` after building the Go binary. By default `./server` is built from `*.go` files, so if you Go source is in root this should work great!
 
-```
+```hcl
 workflow "Deployment" {
   on = "push"
   resolves = ["Deploy"]
@@ -26,7 +26,7 @@ action "Deploy" {
 
 Alternatively you can specify the build command:
 
-```
+```hcl
 workflow "Deployment" {
   on = "push"
   resolves = ["Deploy"]

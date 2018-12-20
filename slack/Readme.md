@@ -17,7 +17,7 @@ GitHub Action for sending Slack messages which were defined by previous action(s
 This example sends a Slack notification after a deployment is complete. The `apex/actions/up`
 action generates a slack.json to provide a message.
 
-```
+```hcl
 workflow "Deployment" {
   on = "push"
   resolves = ["Deploy Notification"]

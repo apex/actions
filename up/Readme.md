@@ -45,7 +45,7 @@ Deploy an application to `production` after installing NPM dependencies
 in a separate action, note that Up's build hooks are disabled here with `--no-build` since
 we have already built the application.
 
-```
+```hcl
 workflow "Deploy Application" {
   on = "push"
   resolves = ["Deploy"]

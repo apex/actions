@@ -27,6 +27,7 @@ footer="Completed in ${duration}s"
 
 cat <<EOF > slack.json
 {
+  "username": "SAM",
   "icon_url": "$icon",
   "attachments": [
     {
