@@ -5,6 +5,9 @@ GitHub Action for sending Slack messages which were defined by previous action(s
 ## Secrets
 
 - `SLACK_WEBHOOK_URL` - *Required* The Slack webhook URL.
+
+## Environment Variables
+
 - `SLACK_CHANNEL` - *Optional* The Slack channel name.
 - `SLACK_USERNAME` - *Optional* The Slack message username.
 - `SLACK_ICON` - *Optional* The Slack message icon.
