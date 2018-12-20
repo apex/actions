@@ -9,7 +9,7 @@ set -e
 [ -n "$AWS_DEFAULT_OUTPUT" ] || export AWS_DEFAULT_OUTPUT=json
 
 # Capture output
-start=$SECONDS
+start=$(date '+%s')
 output=$( sh -c "sam $*" )
 
 # Preserve output for consumption by downstream actions
@@ -19,7 +19,7 @@ echo "$output" > "${HOME}/${GITHUB_ACTION}.${AWS_DEFAULT_OUTPUT}"
 echo "$output"
 
 # Slack message
-duration=$(($SECONDS - $start))
+duration=$(($(date '+%s') - $start))
 icon="https://newmathdata.com/wp-content/uploads/2018/03/aws_sam_local.png"
 title=$GITHUB_REPOSITORY
 text="$1 completed"
