@@ -9,6 +9,9 @@ LABEL "com.github.actions.description"="Perform Up application operations"
 LABEL "com.github.actions.icon"="chevron-up"
 LABEL "com.github.actions.color"="white"
 
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+RUN apt-get install -y nodejs
+
 ENV CI true
 RUN curl -sf https://up.apex.sh/install | sh
 RUN chmod +x /usr/local/bin/up
