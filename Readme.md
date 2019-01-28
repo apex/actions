@@ -18,5 +18,7 @@
 [![GoDoc](https://godoc.org/github.com/apex/actions?status.svg)](https://godoc.org/github.com/apex/actions)
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
 ![](https://img.shields.io/badge/status-stable-green.svg)
+[![GitHubActions](https://img.shields.io/badge/as%20seen%20on%20-GitHubActions-blue.svg)](https://github-actions.netlify.com/aws-sam)
+
 
 <a href="https://apex.sh"><img src="http://tjholowaychuk.com:6000/svg/sponsor"></a>
