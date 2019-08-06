@@ -45,11 +45,15 @@ func main() {
 	// proxy to up(1)
 	start := time.Now()
 
-	cmd := exec.Command("up", args...)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	err = cmd.Run()
-	if err != nil {
+	// run `up upgrade` if UP_CONFIG is present
+	if os.Getenv("UP_CONFIG") != "" {
+		if err := up("upgrade"); err != nil {
+			log.Fatalf("error upgrading: %s\n", err)
+		}
+	}
+
+	// run the user-specified action command
+	if err := up(args...); err != nil {
 		log.Fatalf("error: %s", err)
 	}
 
@@ -70,4 +74,12 @@ func main() {
 			log.Fatalf("error writing slack message: %s", err)
 		}
 	}
+}
+
+// up executes with the given arguments.
+func up(args ...string) error {
+	cmd := exec.Command("up", args...)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
 }
