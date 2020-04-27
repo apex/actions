@@ -153,7 +153,7 @@ func Send(url string, msg *Message) error {
 	}
 	defer res.Body.Close()
 
-	if res.StatusCode >= 300 {
+	if res.StatusCode >= http.StatusMultipleChoices {
 		return errors.Errorf("%s response", res.Status)
 	}
 
