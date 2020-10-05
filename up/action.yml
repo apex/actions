@@ -1,0 +1,15 @@
+name: 'Apex Up'
+description: 'Deploy & manage Up applications'
+inputs:
+  command:
+    description: 'Up command to run'
+    required: true
+    default: 'deploy production'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
+branding:
+  icon: 'chevron-up'
+  color: 'white'
