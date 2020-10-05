@@ -1,14 +1,14 @@
 name: 'Apex Up'
 description: 'Deploy & manage Up applications'
 inputs:
-  command:
-    description: 'Up command to run'
+  stage:
+    description: 'Up stage to deploy'
     required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.command }}
+    - ${{ inputs.stage }}
 branding:
   icon: 'chevron-up'
   color: 'white'
