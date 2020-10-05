@@ -7,4 +7,3 @@ RUN chmod +x /usr/local/bin/up
 RUN go get github.com/apex/actions/up/cmd/up-wrapper
 
 ENTRYPOINT ["up-wrapper"]
-CMD ["deploy", "--no-build"]
