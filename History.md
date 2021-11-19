@@ -1,4 +1,9 @@
 
+v0.5.0 / 2019-08-06
+===================
+
+  * up: add Pro support when UP_CONFIG is present, it will automatically upgrade the binary
+
 v0.4.0 / 2018-12-20
 ===================
 
