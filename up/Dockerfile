@@ -13,7 +13,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
 ENV CI true
-RUN curl -sf https://up.apex.sh/install | sh
+RUN curl -sf https://raw.githubusercontent.com/apex/up/master/install.sh | sh
 RUN chmod +x /usr/local/bin/up
 
 RUN go get github.com/apex/actions/up/cmd/up-wrapper
